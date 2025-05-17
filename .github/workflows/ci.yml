@@ -1,0 +1,12 @@
+name: Execução dos testes e2e API
+on:
+  pull_request:
+    types: [opened, reopened, synchronize]
+  workflow_dispatch:
+jobs:
+  mvn-run:
+    uses: barbosamp/workflow-calls/.github/workflows/restassured-api-tests.yaml@main
+    with:
+      folder_allure: "allure-results"
+    secrets:
+      git_token: ${{ secrets.TOKEN }}
