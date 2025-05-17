@@ -5,8 +5,17 @@ on:
   workflow_dispatch:
 jobs:
   mvn-run:
-    uses: barbosamp/workflow-calls/.github/workflows/restassured-api-tests.yaml@main
-    with:
-      folder_allure: "allure-results"
-    secrets:
-      git_token: ${{ secrets.TOKEN }}
+   runs-on: ubuntu-latest
+   timeout-minutes: 10
+   steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set up Maven
+        uses: s4u/setup-maven-action@v1.8.0
+        with:
+          java-version: 18
+          maven-version: 3.9.4
+
+      - name: Run tests
+        run: mvn clean install
