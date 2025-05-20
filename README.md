@@ -10,24 +10,28 @@ Este projeto tem como objetivo a automação de testes de API utilizando o frame
 - Maven
 
 ### Estrutura do Projeto
-├───.github
-├   ├───workflows  
-├───src                                               
-│   ├───test                                            
-│       ├───java                                      
-│       │   └───dev.etech                                    
-│       │       └───config
-│       │       └───endpoints
-│       │       └───pojo
-│       │       │   └───auth
-│       │       │   └───filmes
-│       │       │   └───usuarios
-│       │       └───runner
-│       │       └───steps
-│       │       └───utils
-│       └───resources                                 
-│           └───features  - Cenários de Teste no formato Gherkin
+```bash
+├── .github/
+│   └── workflows/               # Workflows do GitHub Actions para CI/CD
+│
+├── src/
+│   └── test/
+│       ├── java/
+│       │   └── dev.etech/       # Pacote base da automação
+│       │       ├── config/     # Configurações globais (ex: setup do RestAssured, variáveis de ambiente)
+│       │       ├── endpoints/  # URLs e paths de API organizados por recurso
+│       │       ├── pojo/       # Modelos de dados (Plain Old Java Objects)
+│       │       │   ├── auth/   # Modelos de autenticação
+│       │       │   ├── filmes/ # Modelos para a entidade Filmes
+│       │       │   └── usuarios/ # Modelos para a entidade Usuários
+│       │       ├── runner/     # Classes que executam os testes com Cucumber (Runner classes)
+│       │       ├── steps/      # Definição dos passos (Steps Definitions) dos testes BDD
+│       │       └── utils/      # Classes utilitárias e helpers (geração de dados, leitura de arquivos etc.)
+│       │
+│       └── resources/
+│           └── features/       # Arquivos .feature escritos em Gherkin (Cenários de teste BDD)
 
+```
 
 ### Pré-requisitos
 - Java 21 instalado
